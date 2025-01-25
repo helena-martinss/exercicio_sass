@@ -1,7 +1,13 @@
 @use 'config/reset';
+@use 'config/cores';
+@use 'sass:math';
+
+@function px-para-em($px, $base-font-size: 16px) {
+    @return math.div($px, $base-font-size) * 1em;
+}
 
 body {
-    background-color: #f5f6fa;
+    background-color: cores.$corDeFundo;
 }
 
 li {
@@ -9,13 +15,13 @@ li {
 }
 
 .container {
-    max-width: 1024px;
+    max-width: px-para-em(1024px);
     width: 100%;
     margin: 0 auto;
 }
 
 header {
-    background-color: #182C61;
+    background-color: cores.$corPrimaria;
     position: sticky;
     top: 0;
     left: 0;
@@ -24,7 +30,7 @@ header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 16px 0;
+        padding: px-para-em(16px) 0;
     }
 }
 
@@ -33,21 +39,21 @@ header {
 
     li {
         font-weight: bold;
-        margin-left: 24px;
+        margin-left: px-para-em(24px);
         
         a {
-            color: #fff;
+            color: cores.$corSecundaria;
             text-decoration: none;
         }
     }
 }
 
 section {
-    padding: 56px 0;
+    padding: px-para-em(56px) 0;
 }
 
 .products {
-    margin-top: 40px;
+    margin-top: px-para-em(40px);
     display: grid;
     grid-template-columns: repeat(3, 32.66%);
     column-gap: 1%;
@@ -62,16 +68,16 @@ section {
 
         .product-button {
             display: block;
-            background-color: #44bd32;
-            color: #fff;
+            background-color: cores.$corDoBotao;
+            color: cores.$corSecundaria;
             text-align: center;
-            padding: 8px 0;
+            padding: px-para-em(8px) 0;
             border-radius: 8px;
-            margin-top: 8px;
+            margin-top: px-para-em(8px);
             text-decoration: none;
 
             &:hover {
-                background-color: #4cd137;
+                background-color: cores.$corHoverBotao;
             }
         }
     }
@@ -93,7 +99,7 @@ section {
         display: block;
 
         .product-item  {
-            margin-bottom: 32px;
+            margin-bottom: px-para-em(32px);
         }
     }
 }
